@@ -5,11 +5,22 @@
 
   function handleInput(e) {
     name = e.target.value;
+    search();
   }
 
-  function search() {}
+  function search() {
+    fetch(`${URL}dog`)
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data[0]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 </script>
 
+`
 <main>
   <div class="w-full px-8 pt-8 text-lg max-w-screen-lg mx-auto">
     <div class="w-full">
